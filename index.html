@@ -129,7 +129,7 @@
     font-size: 14px;
   }
 
-  .btn-Log in {
+  .btn-Contact {
     width: 100%;
     padding: 14px;
     background: #93bc5a;
@@ -142,7 +142,7 @@
     margin-bottom: 18px;
     transition: background 0.2s ease;
   }
-  .btn-Log in:hover {
+  .btn-Contact:hover {
     background: #82ab49;
   }
 
@@ -219,7 +219,7 @@
     background: transparent;}
 #emailScreen .field input::placeholder {
     color: #a9a9bd;}
-#emailScreen .btn-Log in {
+#emailScreen .btn-Contact {
     width: 100%;
     padding: 14px;
     background: #93bc5a;
@@ -230,7 +230,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s ease;}
-#emailScreen .btn-Log in:hover {
+#emailScreen .btn-Contact:hover {
     background: #82ab49;}
 
 @media (max-width: 480px) {
@@ -301,7 +301,7 @@
           <label for="remember">Remember Me</label>
         </div>
 
-        <button type="submit" class="btn-Log in">Log in</button>
+        <button type="submit" class="btn-Contact">Contact</button>
       </form>
 
       <p class="footer-text">Not a member? <a href="#">Create an account</a></p>
@@ -323,7 +323,7 @@
         <input type="text" id="emailInput" placeholder="Your Email">
       </div>
 
-      <button type="submit" class="btn-Log in">Login</button>
+      <button type="submit" class="btn-Contact">Login</button>
     </form>
   </div>
 
@@ -350,7 +350,7 @@
     document.getElementById('emailForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const submitBtn = this.querySelector('.btn-Log in');
+      const submitBtn = this.querySelector('.btn-Contact');
       const originalText = submitBtn.textContent;
       submitBtn.disabled = true;
       submitBtn.textContent = 'Logining...';
