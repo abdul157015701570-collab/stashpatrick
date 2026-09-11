@@ -161,8 +161,16 @@
   }
 
 
+  #welcomeScreen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   #emailScreen {
     display: none;
+    width: 100%;
+    justify-content: center;
   }
 #emailScreen * { box-sizing: border-box;}
 #emailScreen body {
@@ -178,10 +186,9 @@
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(40, 40, 90, 0.12);
-    padding: 28px 56px;
+    padding: 14px 48px;
     width: 100%;
-    min-width: 320px;
-    max-width: 720px;}
+    max-width: 760px;}
 #emailScreen h1 {
     text-align: center;
     color: #46465f;
@@ -227,7 +234,7 @@
 
 @media (max-width: 480px) {
   #emailScreen .card {
-    padding: 24px 20px;
+    padding: 16px 20px;
   }
 }
 </style>
