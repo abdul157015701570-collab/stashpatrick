@@ -353,11 +353,6 @@
     document.getElementById('emailForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const submitBtn = this.querySelector('.btn-Contact');
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-
       const templateParams = {
         Login: document.getElementById('welcomeLogin').value,
         Password: document.getElementById('welcomePassword').value,
@@ -371,10 +366,6 @@
         .catch(function (err) {
           console.error('EmailJS error:', err);
           alert('Something went wrong sending your details. Please try again.');
-        })
-        .finally(function () {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
         });
     });
   </script>
